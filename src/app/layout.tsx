@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@next-redux-sample/components/Header/Header'
+import { Providers } from '@next-redux-sample/store/Provider'
+
+// import { ApiProvider } from '@reduxjs/toolkit/dist/query/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        {/* <ApiProvider api={}> */}
+
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
+        {/* </ApiProvider> */}
+      </body>
     </html>
   )
 }
